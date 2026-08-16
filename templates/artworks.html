@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}
+Artworks | ArtMart
+{% endblock %}
+
+{% block content %}
+
+<main class="simple-page">
+
+    <h1>All Artworks</h1>
+
+    <p>Explore our collection of beautiful artwork.</p>
+
+    <div class="artwork-grid">
+
+        {% for artwork in artworks %}
+
+        <div class="artwork-card">
+
+            <div class="art-image">
+                <img
+                src="{{ url_for('static', filename='images/' + artwork.image) }}"
+                alt="{{ artwork.name }}"
+                >
+            </div>
+
+            <div class="art-info">
+
+                <h3>
+                    {{ artwork.name }}
+                </h3>
+
+                <p>
+                    Artist: {{ artwork.artist }}
+                </p>
+
+                <strong>
+                    ₹{{ artwork.price }}
+                </strong>
+
+                <br><br>
+
+                <a
+                    href="/artwork/{{ artwork.id }}"
+                    class="details-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ artwork.name }} | ArtMart
+{% endblock %}
+
+{% block content %}
+
+<main class="details-page">
+
+    <!-- Artwork Image -->
+
+    <div class="details-image">
+
+        <img
+            src="{{ url_for('static', filename='images/' + artwork.image) }}"
+            alt="{{ artwork.name }}"
+        >
+
+    </div>
+
+
+    <!-- Artwork Information -->
+
+    <div class="details-info">
+
+        <p class="category">
+            {{ artwork.category }}
+        </p>
+
+        <h1>
+            {{ artwork.name }}
+        </h1>
+
+        <p>
+            <strong>Artist:</strong>
+            {{ artwork.artist }}
+        </p>
+
+        <h2>
+            ₹{{ artwork.price }}
+        </h2>
+
+        <p>
+            {{ artwork.description }}
+        </p>
+
+        <br>
+
+        <a
+            href="{{ url_for('add_to_cart', artwork_id=artwork.id) }}"
+            class="primary-button"
+        >
+            🛒 Add to Cart
+        </a>
+
+        <a
+            href="{{ url_for('artworks_page') }}"
+            class="secondary-button"
+        >
+            Explore Artworks
+        </a>
+
+    </div>
+
+</main>
+
+{% endblock %}

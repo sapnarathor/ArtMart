@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ArtMart | Art Marketplace</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<!-- Navigation -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🎨 <span>Art</span>Mart
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+        <a href="#artworks">Artworks</a>
+        <a href="#artists">Artists</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+
+        <a href="/cart" class="cart">
+            🛒
+        </a>
+
+        <a href="/contact" class="contact-button">
+            Contact Us
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Discover & Collect
+            <span>Amazing Artwork</span>
+        </h1>
+
+        <p>
+            Explore original paintings, digital art and
+            handcrafted masterpieces from talented artists.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#artworks" class="primary-button">
+                Explore Artworks
+            </a>
+
+            <a href="/artists" class="secondary-button">
+                View Artists
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-art">
+
+    <div class="main-art">
+
+        <img
+            src="{{ url_for('static', filename='images/image.png') }}"
+            alt="Sunset Dreams Artwork"
+        >
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- Featured Artworks -->
+
+<section class="artworks-section" id="artworks">
+
+    <div class="section-header">
+
+        <h2>Featured Artworks</h2>
+
+        <a href="#">
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="artwork-grid">
+
+        {% for artwork in artworks %}
+
+        <div class="artwork-card">
+
+            <div class="art-image">
+                <img
+                src="{{ url_for('static', filename='images/' + artwork.image) }}"
+                alt="{{ artwork.name }}"
+                >
+            </div>
+
+
+            <div class="art-info">
+
+                <h3>
+                    {{ artwork.name }}
+                </h3>
+
+                <p>
+                    Artist: {{ artwork.artist }}
+                </p>
+
+                <div class="art-bottom">
+
+                    <strong>
+                        ₹{{ artwork.price }}
+                    </strong>
+
+                    <a
+                    href="/artwork/{{ artwork.id }}"
+                    class="details-button"
+                    >
+                    View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- Benefits -->
+
+<section class="benefits">
+
+    <div class="benefit">
+
+        <div class="benefit-icon">
+            🛡️
+        </div>
+
+        <div>
+            <h3>100% Original Art</h3>
+            <p>Original artwork from talented artists.</p>
+        </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <div class="benefit-icon">
+            👥
+        </div>
+
+        <div>
+            <h3>Support Artists</h3>
+            <p>Your purchase supports artists.</p>
+        </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <div class="benefit-icon">
+            🚚
+        </div>
+
+        <div>
+            <h3>Secure Delivery</h3>
+            <p>Safe delivery across the country.</p>
+        </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+        <div class="benefit-icon">
+            🔒
+        </div>
+
+        <div>
+            <h3>Secure Payment</h3>
+            <p>Multiple secure payment options.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer id="contact">
+
+    <div>
+        © 2026 ArtMart. All rights reserved.
+    </div>
+
+    <div class="social">
+
+        <span>f</span>
+        <span>◎</span>
+        <span>𝕏</span>
+        <span>in</span>
+
+    </div>
+
+    <div>
+
+        Privacy Policy
+        &nbsp; | &nbsp;
+        Terms of Service
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>

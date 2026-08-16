@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}ArtMart{% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="/" class="logo">
+        🎨 <span>Art</span>Mart
+    </a>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/artworks">
+            Artworks
+        </a>
+
+        <a href="/artists">
+            Artists
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/contact">
+            Contact
+        </a>
+
+        <a href="/cart" class="cart-link">
+            🛒 Cart
+        </a>
+
+    </div>
+
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<footer>
+
+    <div>
+        © 2026 ArtMart
+    </div>
+
+    <div>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/contact">
+            Contact
+        </a>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>

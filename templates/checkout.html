@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}
+Checkout | ArtMart
+{% endblock %}
+
+{% block content %}
+
+<main class="simple-page">
+
+    <h1>Checkout</h1>
+
+    <p>
+        This is a demo checkout.
+        No real payment will be processed.
+    </p>
+
+
+    <form
+        method="POST"
+        action="/checkout"
+    >
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+        >
+
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+        >
+
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            required
+        >
+
+
+        <textarea
+            name="address"
+            placeholder="Delivery Address"
+            rows="5"
+            required
+        ></textarea>
+
+
+        <select name="payment">
+
+            <option value="demo">
+                Demo Payment
+            </option>
+
+            <option value="cod">
+                Cash on Delivery
+            </option>
+
+        </select>
+
+
+        <button
+            type="submit"
+            class="primary-button"
+        >
+            Place Demo Order
+        </button>
+
+    </form>
+
+</main>
+
+{% endblock %}
